@@ -1,0 +1,41 @@
+<div>
+    <a class="block overflow-hidden rounded-3xl cursor-pointer transition-all hover:-translate-y-1" href="{{url}}">
+        {{!-- {{> "picture" picture_classes="w-full rounded-3xl 2xl aspect-[16/9] object-cover cursor-pointer transform hover:scale-105 transition duration-500" }} --}}
+        {{#if feature_image}}
+            {{> "picture" picture_classes="w-full rounded-3xl aspect-[16/9] object-cover cursor-pointer transform hover:scale-105 transition duration-500" }}
+        {{else}}
+            <div class="relative pb-[46.1%] bg-[--color-accent] p-8 border-[6px] border-[#D9EEE6] dark:border-slate-700 rounded-3xl overflow-hidden">
+                <span class="letter italic text-[#D9EEE6] dark:text-slate-700">{{title}}</span>
+            </div>
+        {{/if}}
+    </a>
+    <p class="mt-4 text-sm text-gray-400 dark:text-gray-500 tracking-tight flex items-center gap-2"> <time datetime="{{date format='DD-MM-YYYY'}}">{{date format="DD MMM YYYY"}}</time> <span aria-hidden="true">&mdash;</span> {{reading_time minute="1 min" minutes="% mins"}} read</p>
+    <a href="{{ url }}" class="{{#if title_classes }} {{ title_classes }} {{ else }} mt-4 inline-block text-2xl font-bold {{/if}}" style="letter-spacing: -0.5px;">{{ title }}</a>
+    {{#unless no_excerpt }}
+        <p class="text-gray-500 dark:text-gray-400 mt-2 line-clamp-2">{{ excerpt }}</p>
+    {{/unless }}
+</div>
+
+<style>
+
+
+.letter {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-size: 300px;
+    font-weight: 700;
+    line-height: 200px;
+    text-align: center;
+    letter-spacing: -3px;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .letter {
+        font-size: 220px;
+        line-height: 280px;
+    }
+}
+
+</style>

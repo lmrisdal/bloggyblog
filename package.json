@@ -1,0 +1,138 @@
+{
+    "name": "bloggyblog",
+    "description": "A Custom Theme For Blogging",
+    "demo": "",
+    "version": "0.0.3",
+    "engines": {
+        "ghost": ">=5.0.0"
+    },
+    "license": "MIT",
+    "scripts": {
+        "dev": "concurrently \"rollup -c --environment BUILD:development -w\" \"npx tailwindcss -i ./assets/css/index.css -o ./assets/built/index.css --watch\" ",
+        "build": "rollup -c --environment BUILD:production && npx tailwindcss -i ./assets/css/index.css -o ./assets/built/index.css --minify",
+        "zip": "npm run build && bestzip $npm_package_name.zip assets/* partials/* members/* *.hbs package.json",
+        "test": "npx gscan .",
+        "pretest": "npm run build"
+    },
+    "author": {
+        "name": "Lars Risdal",
+        "email": "larsrisdal@gmail.com",
+        "url": "https://lmgr.io"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Blog"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lmrisdal/bloggyblog.git"
+    },
+    "bugs": "https://github.com/lmrisdal/bloggyblog/issues",
+    "contributors": [
+        "https://github.com/lmrisdal"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.21.0",
+        "@babel/preset-env": "^7.20.2",
+        "@rollup/plugin-babel": "^6.0.3",
+        "@rollup/plugin-commonjs": "^25.0.0",
+        "@rollup/plugin-node-resolve": "^15.0.1",
+        "@rollup/plugin-terser": "^0.4.0",
+        "@tailwindcss/typography": "^0.5.9",
+        "bestzip": "^2.2.1",
+        "concurrently": "^8.1.0",
+        "postcss-import": "^15.1.0",
+        "postcss-preset-env": "^8.0.1",
+        "rollup": "^3.18.0",
+        "rollup-plugin-livereload": "^2.0.5",
+        "rollup-plugin-postcss": "^4.0.2",
+        "tailwindcss": "^3.3.2"
+    },
+    "browserslist": [
+        "defaults"
+    ],
+    "config": {
+        "card_assets": true,
+        "posts_per_page": 12,
+        "image_sizes": {
+            "xxs": {
+                "width": 30
+            },
+            "xs": {
+                "width": 100
+            },
+            "s": {
+                "width": 300
+            },
+            "m": {
+                "width": 600
+            },
+            "l": {
+                "width": 1200
+            },
+            "xl": {
+                "width": 2000
+            }
+        },
+        "custom": {
+            "dark_mode_logo": {
+                "type": "image"
+            },
+            "instagram": {
+                "type": "text",
+                "default": ""
+            },
+            "threads": {
+                "type": "text",
+                "default": ""
+            },
+            "mastodon_full_url": {
+                "type": "text",
+                "default": ""
+            },
+            "bluesky": {
+                "type": "text",
+                "default": ""
+            },
+            "twitter": {
+                "type": "text",
+                "default": ""
+            },
+            "github": {
+                "type": "text",
+                "default": ""
+            },
+            "custom_rss": {
+                "type": "text",
+                "default": ""
+            },
+            "show_social_icon": {
+                "type": "boolean",
+                "default": true
+            },
+            "show_social_label": {
+                "type": "boolean",
+                "default": true
+            },
+            "custom_page_image_width": {
+                "type": "select",
+                "options": [
+                    "Full",
+                    "Wide",
+                    "Compact"
+                ],
+                "default": "Full",
+                "group": "post"
+            }
+        }
+    },
+    "type": "module"
+}

@@ -1,0 +1,146 @@
+<div class="w-full gh-canvas bg-white dark:bg-[#0F1720] z-20">
+    <nav class="py-6 kg-width-wide">
+        <div class="top flex justify-between items-center px-6">
+            <div class="flex items-center gap-16">
+                <a class="font-bold text-4xl" href="{{@site.url}}">
+                    {{#if @site.logo}}
+                        <img loading="lazy" width="100%" height="100%" src="{{@site.logo}}" alt="{{@site.title}}" class="dark:hidden" />
+                        {{#if @custom.dark_mode_logo}}
+                            <img loading="lazy" width="100%" height="100%" src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" class="dark:block hidden">
+                        {{/if}}
+                    {{else}}
+                        {{@site.title}}
+                    {{/if}}
+                </a>
+            </div>
+            
+            
+            <div class="top-left hidden lg:flex items-center gap-2">
+
+                {{#if @member  }}
+                    <div class="click-field relative group inline-block text-left mr-6">
+                        <div onclick="showDropdown()" class="flex items-center gap-6 cursor-pointer">
+                            <div class="h-8 w-8 object-cover rounded-full flex text-white items-center justify-center dark:bg-white dark:text-black bg-[#1763f1]">{{ @member.name.[0] }}</div>
+                            <button type="button" class="dark:text-white line-clamp max-w-[160px]">{{ @member.name }}</button>
+                        </div>
+                        <div data-show="false" class="dropdown absolute z-10 mt-4 min-w-[150px] max-w-[200px] w-full origin-top-right rounded-md bg-white dark:bg-[#2a2a2a] text-gray-700 px-1 dark:text-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <div class="py-1" role="none">
+                                <a onclick="showDropdown()" href="/#/portal/account" class="flex items-center gap-4 hover:bg-gray-100 dark:hover:bg-[#3e3e3e] rounded-md px-4 py-2 text-sm">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                    </svg>      
+                                    <span>Profile</span>
+                                </a>
+                                <a onclick="showDropdown()" href="javascript:" data-members-signout class="flex w-full items-center gap-4 hover:bg-gray-100 dark:hover:bg-[#3e3e3e] rounded-md px-4 py-2 text-sm">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                {{else if @site.members_enabled}}
+                    <a class="px-3 p-2 rounded-md" href="#/portal/account">Sign In</a>
+                {{/if}}
+                <div class="hidden lg:block mr-4">
+                    {{navigation}} 
+                </div>
+                <button title="search button" name="search button" data-ghost-search class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-[var(--color-primary)] rounded-md">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-hamburger lg:hidden gap-2 flex items-center">
+                <button title="search button" name="search button" data-ghost-search class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-[var(--color-primary)] rounded-md">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </button>
+                <button title="hamburger menu" name="hamburger menu" class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-[var(--color-primary)] rounded-md" onclick="toggleSidebar()">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+        <aside class="mobile-sidebar overscroll-contain hidden fixed justify-center items-center inset-y-0 z-50 flex-shrink-0 w-full left-0 overflow-y-auto bg-[#ffffff] dark:text-white dark:bg-[#151719] lg:hidden">
+            <button
+                title="sidebar close button"
+                name="sidebar close button"
+                onclick="toggleSidebar()"
+                class="absolute top-6 right-[56px] lg:hidden z-20 flex h-10 w-10 items-center justify-center rounded-md hover:bg-[#E3E8F3] dark:hover:bg-[var(--color-primary)]">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <nav class="pt-16 pb-28 my-auto">
+                {{> navigation}}
+            </nav>
+            {{#if @site.members_enabled}}
+                    <div class="w-full fixed bottom-0 left-0 bg-white dark:bg-[#151719] py-2 flex flex-col justify-center items-center">
+                        <ul class="w-[80%] mx-auto">
+                            {{#if @member}}
+                                <li>
+                                    <a href="#/portal/account" class="bg-red-500 text-center text-white hover:bg-red-600 p-3 block w-full">Account</a>
+                                </li>
+                                <li class="flex justify-center items-center mt-2 gap-3 p-3">
+                                    <div class="h-6 w-6 object-cover rounded-full flex text-white items-center justify-center dark:bg-white dark:text-black bg-[#1763f1]">{{ @member.name.[0] }}</div>
+                                    <p class="font-medium line-clamp max-w-[150px]">{{ @member.name }}</p>
+                                </li>
+                            {{else}}
+                                <li>
+                                    <a href="#/portal/signup" class="bg-red-500 text-center text-white hover:bg-red-600 p-3 block w-full">Subscribe</a>
+                                </li>
+                                <li class="flex justify-center mt-2">
+                                    <a href="#/portal/signin" class="p-3 hover:text-gray-500">Sign In</a>
+                                </li>
+                            {{/if }}
+                        </ul>
+                    </div>
+            {{/if }}
+        </aside>
+    </nav>
+</div>
+
+<script>
+    const toggleSidebar = () => {
+        let closed = true
+        const mobileSidebar = document.querySelector('.mobile-sidebar')
+        const backdrop = document.querySelector('.backdrop')
+        if(mobileSidebar) {
+            closed = mobileSidebar.classList.contains('hidden')
+            mobileSidebar.classList.toggle('hidden');
+            mobileSidebar.classList.toggle('flex');
+        }
+        if(backdrop){
+            backdrop.classList.toggle('hidden');
+            backdrop.classList.toggle('flex');
+        }
+        if(closed){
+            document.body.style.top = `-${window.scrollY}px`;
+            document.body.style.position = 'fixed';
+        }else{
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
+
+    }
+
+    const showDropdown = () => {
+        const dropdown = document.querySelector('.dropdown')
+        if(dropdown && dropdown.attributes.getNamedItem('data-show').nodeValue == 'true'){
+            dropdown.attributes.getNamedItem('data-show').nodeValue = 'false'
+        }else{
+            dropdown.attributes.getNamedItem('data-show').nodeValue = 'true'
+        }
+    }
+</script>

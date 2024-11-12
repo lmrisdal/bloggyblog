@@ -1,0 +1,122 @@
+<section class="relative gh-canvas pt-2 overflow-hidden">
+    <div class="relative kg-width-wide pb-8">
+        <div class="flex gap-12 flex-col lg:flex-row pb-32">
+            <div class="w-full flex justify-center">
+                <div class="flex flex-col">
+                    <ul class="mt-4 flex justify-center items-center flex-nowrap gap-2">
+                        <li>
+                            <a
+                                class="text-gray-900 px-4 py-1 h-8 flex items-center font-medium leading-relaxed rounded-full bg-[#FFF5CA] hover:bg-yellow-100 dark:text-[ghostwhite] dark:bg-[--color-accent] dark:hover:bg-blue-300"
+                                href="/about">
+                                About
+                            </a>
+                        </li>
+                        {{#if @custom.instagram}}
+                        <li>
+                            <a
+                                class="text-gray-900 px-4 py-1 h-8 flex gap-1 items-center font-medium leading-relaxed rounded-full bg-[#FFF5CA] hover:bg-yellow-100 dark:bg-[--color-accent] dark:text-[ghostwhite] dark:hover:bg-blue-300"
+                                target="_blank"
+                                title="Instagram"
+                                href="https://instagram.com/{{@custom.instagram}}">
+                                {{#if @custom.show_social_icon}}
+                                {{> "icons/instagram"}}
+                                {{/if}}
+                                {{#if @custom.show_social_label}}
+                                <span class="hidden md:block">Instagram</span>
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/if}}
+                        {{#if @custom.threads}}
+                        <li>
+                            <a
+                                class="text-gray-900 px-4 py-1 h-8 flex gap-1 items-center font-medium leading-relaxed rounded-full bg-[#FFF5CA] hover:bg-yellow-100 dark:bg-[--color-accent] dark:text-[ghostwhite] dark:hover:bg-blue-300"
+                                target="_blank"
+                                title="Threads"
+                                href="https://threads.net/{{@custom.threads}}">
+                                {{#if @custom.show_social_icon}}
+                                {{> "icons/threads"}}
+                                {{/if}}
+                                {{#if @custom.show_social_label}}
+                                <span class="hidden md:block">Threads</span>
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/if}}
+                        {{#if @custom.bluesky}}
+                        <li>
+                            <a
+                                class="text-gray-900 px-4 py-1 h-8 flex gap-1 items-center font-medium leading-relaxed rounded-full bg-[#FFF5CA] hover:bg-yellow-100 dark:bg-[--color-accent] dark:text-[ghostwhite] dark:hover:bg-blue-300"
+                                target="_blank"
+                                title="Bluesky"
+                                href="https://bsky.app/profile/{{@custom.bluesky}}">
+                                {{#if @custom.show_social_icon}}
+                                {{> "icons/bluesky"}}
+                                {{/if}}
+                                {{#if @custom.show_social_label}}
+                                <span class="hidden md:block">Bluesky</span>
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/if}}
+                        {{#if @custom.mastodon_full_url}}
+                        <li>
+                            <a
+                                class="text-gray-900 px-4 py-1 h-8 flex gap-1 items-center font-medium leading-relaxed rounded-full bg-[#FFF5CA] hover:bg-yellow-100 dark:bg-[--color-accent] dark:text-[ghostwhite] dark:hover:bg-blue-300"
+                                target="_blank"
+                                title="Mastodon"
+                                href="{{@custom.mastodon_full_url}}">
+                                {{#if @custom.show_social_icon}}
+                                {{> "icons/mastodon"}}
+                                {{/if}}
+                                {{#if @custom.show_social_label}}
+                                <span class="hidden md:block">Mastodon</span>
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/if}}
+                        {{#if @custom.twitter}}
+                        <li>
+                            <a
+                                class="text-gray-900 px-4 py-1 h-8 flex gap-1 items-center font-medium leading-relaxed rounded-full bg-[#FFF5CA] hover:bg-yellow-100 dark:bg-[--color-accent] dark:text-[ghostwhite] dark:hover:bg-blue-300"
+                                target="_blank"
+                                title="Twitter"
+                                href="https://twitter.com/{{@custom.twitter}}">
+                                {{#if @custom.show_social_icon}}
+                                {{> "icons/icon-twitter"}}
+                                {{/if}}
+                                {{#if @custom.show_social_label}}
+                                <span class="hidden md:block">Twitter</span>
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/if}}
+                        {{#if @custom.github}}
+                        <li>
+                            <a
+                                class="text-gray-900 px-4 py-1 h-8 flex gap-1 items-center font-medium leading-relaxed rounded-full bg-[#FFF5CA] hover:bg-yellow-100 dark:bg-[--color-accent] dark:text-[ghostwhite] dark:hover:bg-blue-300"
+                                target="_blank"
+                                title="GitHub"
+                                href="https://github.com/{{@custom.github}}">
+                                {{#if @custom.show_social_icon}}
+                                {{> "icons/github"}}
+                                {{/if}}
+                                {{#if @custom.show_social_label}}
+                                <span class="hidden md:block">GitHub</span>
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/if}}
+                    </ul>
+                    <p class="text-center mt-8 text-sm opacity-70">Published with <a href="https://ghost.org/" target="_blank" class="underline">Ghost</a>.</p>
+                    <a
+                        href="{{#if @custom.custom_rss}}{{@custom.custom_rss}}{{else}}{{@site.url}}/rss{{/if}}"
+                        target="_blank" class="justify-center text-sm mt-4 opacity-90 flex gap-1 items-center">
+                        {{> "icons/rss"}}
+                        RSS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

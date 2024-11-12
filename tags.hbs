@@ -1,0 +1,38 @@
+{{!< default}}
+
+<div class="kg-width-wide py-12">
+
+    {{#get 'tags' limit='all' order="count.posts desc" include='count.posts'}}
+        {{#if tags }}
+            <h2 class="text-2xl font-bold">Tags Collection</h2>
+            <p class="lg:w-2/3 mt-4 text-gray-600 dark:text-gray-400">Click on any tag to unveil a collection of articles dedicated to that specific theme. Enjoy the journey of exploration and immerse yourself in captivating topics.</p>
+
+            <div class="grid md:grid-cols-2 2lg:grid-cols-4 lg:grid-cols-3 gap-12 lg:gap-8 mt-8">
+                        
+                {{#foreach tags}}
+                    <div class="flex flex-col gap-2">
+                        <div class="h-[300px] min-w-[250px] rounded">
+                            <a href="{{ url }}">
+                                {{#if feature_image}}
+                                    {{> "picture" picture_classes="w-full h-full object-cover rounded hover:scale-105" }}
+                                {{else}}
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full border rounded dark:border-gray-600">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                                    </svg>
+                                {{/if}}
+                            </a>
+                        </div>
+                        <a href="{{ url }}" class="font-bold text-xl">{{ name }}</a>
+                        <p class="text-xs">{{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</p>
+                    </div>
+                {{/foreach}}
+                    
+            </div>
+        {{else}}
+            <div class="flex justify-center items-center h-[60vh] text-xl">
+                No tags found
+            </div>
+        {{/if}}      
+            
+    {{/get}}
+</div>

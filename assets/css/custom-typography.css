@@ -1,0 +1,162 @@
+.gh-canvas > blockquote, .gh-canvas > ol, .gh-canvas > ul, .gh-canvas > dl, .gh-canvas > p {
+  font: inherit;
+}
+.gh-content blockquote{
+  background: transparent;
+}
+.gh-content blockquote::before{
+  display: none;
+}
+
+figcaption{
+  font-size:14px;
+  font-weight:normal;
+}
+
+figcaption a:hover{
+  color: #B6B7F6;
+  text-decoration: underline;
+}
+
+body.dark figcaption{
+  color: #fff;
+}
+
+@media (max-width: 650px) {
+  .gh-canvas blockquote,
+    .gh-canvas ol,
+    .gh-canvas ul,
+    .gh-canvas dl,
+    .gh-canvas p {
+      font-size: 1rem;
+  }
+}
+
+
+.alert,pre.language-alert {
+  --sign: "i";
+  position: relative;
+  padding: 1em;
+  border: 1px solid;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  border-radius: 5px;
+}
+
+.alert a,pre.language-alert a {
+  border-bottom: 1px dotted var(--color-accent)
+}
+
+@media only screen and (min-width: 48em) {
+  .alert,pre.language-alert {
+    padding:1.5em
+  }
+}
+
+.alert:before,pre.language-alert:before {
+  content: var(--sign);
+  background-color: var(--color-accent);
+  font-family: Consolas,Monaco,monospace;
+  position: absolute;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  left: -12px;
+  top: -12px;
+  font-size: .9rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%
+}
+
+.alert:after,pre.language-alert:after {
+  content: "";
+  background-color: var(--color-accent);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  opacity: .05
+}
+
+.alert.info,pre.language-alert.info {
+  --color-accent: #6366F0;
+  --sign: "i"
+}
+
+.alert.warning,pre.language-alert.warning {
+  --color-accent: #EAB308;
+  --sign: "!"
+}
+
+.alert.error,pre.language-alert.error {
+  --color-accent: #F51720;
+  --sign: "!"
+}
+
+.alert.error:before,pre.language-alert.error:before {
+  content: "!"
+}
+
+.alert.success,pre.language-alert.success {
+  --color-accent: #22C55E;
+  --sign: "\2713"
+}
+
+.prose blockquote p {
+  margin: 0
+}
+
+.prose blockquote {
+  padding: 0;
+  font-style: italic;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 55px;
+  border:none;
+  display: block;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size:25px;
+}
+
+.prose blockquote::before {
+  font-style: none;
+  font-family: sans-serif;
+  font-size: 120px;
+  font-weight: 700;
+  position: absolute;
+  top: -55px;
+  left: -15px;
+  content: '"';
+  color: #e50b4f;
+}
+
+.prose blockquote.kg-blockquote-alt {
+  font-size: 36px;
+  line-height: 1.4;
+  box-sizing: border-box;
+  text-align: center;
+  color: #e50b4f;
+  padding: 0;
+}
+
+.prose blockquote.kg-blockquote-alt::before {
+  display: none;
+}
+
+
+

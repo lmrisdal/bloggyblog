@@ -1,0 +1,195 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/*
+
+This is a development CSS file that is compiled to a minified
+production stylesheet in assets/built/screen.css using: npm run dev
+
+*/
+
+/* Lib - Local component imports
+/* ---------------------------------------------------------- */
+
+/* Base components */
+@import "vars.css";
+/* @import "components/global.css"; */
+/* @import "components/forms.css";
+@import "components/buttons.css"; */
+
+/* Ghost components */
+/* @import "ghost/header.css"; */
+@import "ghost/content.css";
+/* @import "ghost/readmore.css";
+@import "ghost/members.css";
+@import "ghost/errors.css";
+@import "ghost/footer.css";
+@import "ghost/badge.css";
+@import "ghost/pagination.css";
+@import "ghost/comments.css"; */
+
+/* Custom imports */
+@import "custom-typography.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+/* Main - Your styles here! Edit below
+/* ---------------------------------------------------------- */
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    body,
+    html {
+        background: var(--color-background);
+        color: white;
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+*[data-show="false"] {
+    display: none;
+}
+.progress-container {
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+}
+.progress-bar {
+    height: 5px;
+    background: var(--color-primary);
+}
+
+.unshow {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+.btn {
+    @apply inline-block px-3 py-2 rounded;
+}
+
+.btn-primary {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
+}
+
+.btn-secondary {
+    @apply text-white bg-[#3b5998] hover:bg-[#3b5998]/90;
+}
+
+.btn-dark {
+    @apply text-white bg-[#24292F] hover:bg-[#24292F]/90  dark:hover:bg-[#24292F]/80;
+}
+
+.btn-extra-dark {
+    @apply text-white bg-[#050708] hover:bg-[#050708]/90  dark:hover:bg-[#1c2228];
+}
+
+.underline-animation {
+    padding-bottom: 0.2%;
+    transition: background-size 0.6s ease-out;
+    background: linear-gradient(red, red) no-repeat left 140%/0 40%;
+}
+
+.underline-animation:hover {
+    background-size: 97% 40%;
+}
+
+.toc-container ol.toc-list,
+.toc-container ol.toc-list .toc-list-item {
+    position: relative;
+    margin: 0 0;
+    padding: 0;
+}
+
+.toc-container .is-active-li {
+    margin: 12px 0;
+}
+
+.toc-container ol.toc-list .toc-list-item a::before {
+    @apply bg-gray-300 dark:bg-gray-600;
+}
+.toc-container ol.toc-list .toc-list-item a {
+    margin-left: 12px;
+    margin-top: 7px;
+    display: inline-block;
+    word-break: break-all;
+    @apply text-gray-500 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-400 line-clamp;
+}
+
+.toc-container ol.toc-list .toc-list-item.is-active-li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.toc-container
+    ol.toc-list
+    .toc-list-item.is-active-li
+    a.is-active-link::before {
+    @apply bg-indigo-500;
+}
+
+.toc-container ol.toc-list .toc-list-item.is-active-li a {
+    @apply text-indigo-500 hover:text-indigo-500 font-normal;
+}
+
+.prose .kg-bookmark-title {
+    font-size: 0.9rem;
+}
+
+.prose .kg-bookmark-description {
+    margin-top: 7px;
+    font-size: 0.9rem;
+}
+
+.prose .kg-bookmark-metadata {
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.prose .kg-bookmark-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    margin-right: 6px;
+}
+
+.prose .kg-bookmark-thumbnail img {
+    margin: 0;
+}
+
+@layer utilities {
+    .line-clamp {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        display: block;
+        line-height: 1.65em;
+    }
+}
+
+.prose iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    @apply !bg-[#011627] dark:!bg-[#272822];
+    border-radius: 8px;
+}
